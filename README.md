@@ -1,3 +1,3 @@
 # Brewtiful
 
-An qpplication concerning any and all things beer-related. Clone the repo and then:
+An application concerning any and all things beer-related (we hope). Clone the repo and then:
