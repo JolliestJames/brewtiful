@@ -1,24 +1,30 @@
-# README
+# Brewtiful
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An application concerning any and all things beer-related (we hope). Clone the repo and then:
 
-Things you may want to cover:
+## Install dependencies
 
-* Ruby version
+Install app dependencies by running the following terminal command while inside of the app directory:
 
-* System dependencies
+```
+bundle install
+```
 
-* Configuration
+## Create the database and schema
 
-* Database creation
+Run the following commands in order to create database and schema files:
 
-* Database initialization
+```
+rake db:create:all
+rake db:migrate
+```
 
-* How to run the test suite
+## Run tests
 
-* Services (job queues, cache servers, search engines, etc.)
+To run the test suite, simply enter the following command into the terminal:
 
-* Deployment instructions
+```
+rspec
+```
 
-* ...
+(c) 2018 James and Josh. All rights reserved.
