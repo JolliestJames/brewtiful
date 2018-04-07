@@ -1,4 +1,4 @@
-# edu.osucascades.brewtiful
+# Brewtiful
 
 An application concerning any and all things beer-related (we hope). Make sure you're using ruby 2.5 and rails 5. Clone the repo and then:
 
