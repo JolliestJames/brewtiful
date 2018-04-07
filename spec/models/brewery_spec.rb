@@ -5,4 +5,11 @@ RSpec.describe Brewery do
     brewery = Brewery.new
     expect(brewery.out_of_stock?).to be_truthy
   end
+
+  it "knows that a brewery with beers is not out of business" do
+    brewery = Brewery.new
+    brew = Brew.new
+    brewery.brews << brew
+    expect(brewery.out_of_stock?).to be_falsy
+  end
 end 
