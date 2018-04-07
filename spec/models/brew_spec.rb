@@ -11,3 +11,5 @@ RSpec.describe Brew do
     brew.mark_consumed
     expect(brew).to be_consumed
   end
+  
+end
