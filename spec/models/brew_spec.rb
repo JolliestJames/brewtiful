@@ -16,5 +16,9 @@ RSpec.describe Brew do
   	brew.concoct "6.8%", 80, "IPA"
   	expect(brew).to be_concocted
   end
-  
+	
+	it "is a local brew" do
+		brew.is_local  5
+		expect(brew).to be_local
+	end
 end
