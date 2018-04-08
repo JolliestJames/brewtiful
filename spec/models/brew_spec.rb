@@ -11,5 +11,10 @@ RSpec.describe Brew do
     brew.mark_consumed
     expect(brew).to be_consumed
   end
+
+  it "allows us to concoct a brew" do
+  	brew.concoct "6.8%", 80, "IPA"
+  	expect(brew).to be_concocted
+  end
   
 end
