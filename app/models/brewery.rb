@@ -16,7 +16,7 @@ class Brewery
   end
 
   def out_of_stock?
-    brews.empty?
+    @brews.empty?
   end
 
 end
