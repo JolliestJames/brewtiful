@@ -8,21 +8,15 @@ class Brewery
   end
 
   def has_location?
-    unless location.nil?
-      return true
-    end
-    false 
+    @location 
   end
 
   def has_name?
-    unless name.nil?
-      return true
-    end
-    false 
+    @name
   end
 
   def out_of_stock?
     brews.empty?
   end
-  
+
 end
