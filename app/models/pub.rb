@@ -8,4 +8,5 @@ class Pub
   def has_empty_tap_list?
     @tap_list.empty?
   end
+  
 end

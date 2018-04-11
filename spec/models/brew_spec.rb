@@ -20,5 +20,6 @@ RSpec.describe Brew do
 	it "is a local brew" do
 		brew.is_local  5
 		expect(brew).to be_local
-	end
+  end
+  
 end
