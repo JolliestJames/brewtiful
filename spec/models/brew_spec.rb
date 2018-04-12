@@ -13,13 +13,13 @@ RSpec.describe Brew do
   end
 
   it "allows us to concoct a brew" do
-  	brew.concoct("6.8%", 80, "IPA")
-  	expect(brew).to be_concocted
+    brew.concoct("6.8%", 80, "IPA")
+    expect(brew).to be_concocted
   end
-	
-	it "is a local brew" do
-		brew.is_local(5)
-		expect(brew).to be_local
+  
+  it "is a local brew" do
+    brew.is_local(5)
+    expect(brew).to be_local
   end
   
 end
