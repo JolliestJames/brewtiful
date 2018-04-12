@@ -15,7 +15,7 @@ class Brew
   def mark_consumed
     @consumed = true
   end
-  
+    
   def consumed?
     @consumed
   end
@@ -23,12 +23,12 @@ class Brew
   def mark_concocted
   	@concocted = true
   end
-  
+    
   def concocted?
   	@concocted
   end
   
-  def concoct abv, ibu, classification
+  def concoct(abv, ibu, classification)
   	@abv = abv
   	@ibu = ibu
   	@classification = classification
@@ -43,7 +43,7 @@ class Brew
   	@local
 	end
   
-  def is_local miles
+  def is_local(miles)
   	@miles = miles
   	if miles < MAX_LOCAL_DISTANCE
   		mark_local
