@@ -5,7 +5,7 @@ RSpec.describe Brewery do
   let(:brew) { Brew.new }
 
   it "knows that a brewery is a business" do
-    expect(Pub).to be < Business
+    expect(Brewery).to be < Business
   end
 
   it "considers a brewery with no beers to be out of stock" do
