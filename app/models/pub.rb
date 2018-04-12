@@ -1,4 +1,4 @@
-class Pub
+class Pub < Business
   attr_accessor :tap_list
 
   def initialize(location, name)
@@ -8,15 +8,7 @@ class Pub
   end
 
   def has_empty_tap_list?
-    @tap_list.empty?
-  end
-
-  def has_location?
-    @location
-  end
-
-  def has_name?
-    @name
+    tap_list.empty?
   end
 
 end
