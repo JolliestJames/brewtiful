@@ -1,15 +1,13 @@
 class Brew
 
-	MAX_LOCAL_DISTANCE = 50
+  MAX_LOCAL_DISTANCE = 50
   
   def initialize
     @consumed = false
     @concocted = false
-    @local = false
-    @abv = nil
-    @ibu = nil
-    @classification = nil
-    @miles = 0
+    @abv = "0"
+    @ibu = 0
+    @classification = "none"
   end
   
   def mark_consumed
@@ -21,33 +19,32 @@ class Brew
   end
   
   def mark_concocted
-  	@concocted = true
+    @concocted = true
   end
     
   def concocted?
-  	@concocted
+    @concocted
   end
   
   def concoct(abv, ibu, classification)
-  	@abv = abv
-  	@ibu = ibu
-  	@classification = classification
-  	mark_concocted
+    @abv = abv
+    @ibu = ibu
+    @classification = classification
+    mark_concocted
   end
   
   def mark_local
-  	@local = true
+    @local = true
   end
   
   def local?
-  	@local
-	end
+    @local
+  end
   
-  def is_local(miles)
-  	@miles = miles
-  	if miles < MAX_LOCAL_DISTANCE
-  		mark_local
-  	end
+  def is_local(miles_from_brewery)
+    if miles_from_brewery < MAX_LOCAL_DISTANCE
+      mark_local
+    end
   end
   
 end
