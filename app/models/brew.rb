@@ -1,6 +1,6 @@
 class Brew
 
-	MAX_DISTANCE_CONST = 50
+	MAX_LOCAL_DISTANCE = 50
   
   def initialize
     @consumed = false
@@ -45,7 +45,7 @@ class Brew
   
   def is_local miles
   	@miles = miles
-  	if miles < MAX_DISTANCE_CONST
+  	if miles < MAX_LOCAL_DISTANCE
   		mark_local
   	end
   end
