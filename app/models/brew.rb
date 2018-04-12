@@ -2,12 +2,12 @@ class Brew
 
   MAX_LOCAL_DISTANCE = 50
   
-  def initialize
+  def initialize(abv, ibu, classification)
     @consumed = false
     @concocted = false
-    @abv = "0"
-    @ibu = 0
-    @classification = "none"
+    @abv = abv
+    @ibu = ibu
+    @classification = classification
   end
   
   def mark_consumed
@@ -18,20 +18,20 @@ class Brew
     @consumed
   end
   
-  def mark_concocted
-    @concocted = true
-  end
+  # def mark_concocted
+  #   @concocted = true
+  # end
     
-  def concocted?
-    @concocted
-  end
+  # def concocted?
+  #   @concocted
+  # end
   
-  def concoct(abv, ibu, classification)
-    @abv = abv
-    @ibu = ibu
-    @classification = classification
-    mark_concocted
-  end
+  # def concoct(abv, ibu, classification)
+  #   @abv = abv
+  #   @ibu = ibu
+  #   @classification = classification
+  #   mark_concocted
+  # end
   
   def mark_local
     @local = true
