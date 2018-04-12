@@ -7,7 +7,7 @@ class Pub < Business
     @name = name
   end
 
-  def has_empty_tap_list?
+  def has_an_empty_tap_list?
     tap_list.empty?
   end
 

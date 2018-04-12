@@ -10,7 +10,7 @@ RSpec.describe Pub do
 
   it "knows that a pub must have at least one brew on tap" do
     pub.tap_list << brew
-    expect(pub.has_empty_tap_list?).to be_falsy
+    expect(pub).not_to have_an_empty_tap_list
   end
 
 end
