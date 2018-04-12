@@ -4,11 +4,11 @@ RSpec.describe Business do
   let(:business) { Business.new("Redmond", "Wild Ride") }
 
   it "knows that a business has a location" do
-    expect(business.has_location?).to be_truthy
+    expect(business).to have_location
   end
 
   it "knows that a business has a name" do
-    expect(business.has_location?).to be_truthy
+    expect(business).to have_name
   end
 
 end

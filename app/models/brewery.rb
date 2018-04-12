@@ -1,5 +1,5 @@
-class Brewery
-  attr_accessor :brews, :location, :name
+class Brewery < Business
+  attr_accessor :brews
 
   def initialize(location, name)
     @brews = []
@@ -7,16 +7,8 @@ class Brewery
     @name = name
   end
 
-  def has_location?
-    @location 
-  end
-
-  def has_name?
-    @name
-  end
-
   def out_of_stock?
-    @brews.empty?
+    brews.empty?
   end
 
 end
