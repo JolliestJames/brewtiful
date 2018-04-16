@@ -1,21 +1,15 @@
-class Brew
+class Brew < ApplicationRecord
+  belongs_to :brewery
+  has_and_belongs_to_many :pubs
 
   MAX_LOCAL_DISTANCE = 50
-  
-  def initialize(abv, ibu, classification)
-    @consumed = false
-    @concocted = false
-    @abv = abv
-    @ibu = ibu
-    @classification = classification
-  end
-  
+ 
   def mark_consumed
-    @consumed = true
+    self.consumed = true
   end
     
   def consumed?
-    @consumed
+    self.consumed
   end
     
   def mark_local
