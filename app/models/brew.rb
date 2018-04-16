@@ -17,22 +17,7 @@ class Brew
   def consumed?
     @consumed
   end
-  
-  # def mark_concocted
-  #   @concocted = true
-  # end
     
-  # def concocted?
-  #   @concocted
-  # end
-  
-  # def concoct(abv, ibu, classification)
-  #   @abv = abv
-  #   @ibu = ibu
-  #   @classification = classification
-  #   mark_concocted
-  # end
-  
   def mark_local
     @local = true
   end

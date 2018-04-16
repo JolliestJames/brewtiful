@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Brew do
-  let(:brew) { Brew.new(.068, 80, "IPA") }
+  let(:brew) { Brew.new("6.8%", 80, "IPA") }
 
   it "does not have a new brew as consumed" do
     expect(brew).not_to be_consumed
