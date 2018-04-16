@@ -8,6 +8,12 @@ class CreatesBrewery
 
   def build
     self.brewery = Brewery.new(name: name, location: location)
+    brewery
+  end
+
+  def create
+    build
+    brewery.save
   end
 
 end
