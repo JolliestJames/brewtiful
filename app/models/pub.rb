@@ -6,6 +6,14 @@ class Pub < Business
     @location = location
     @name = name
   end
+  
+  def has_location?
+    location
+  end
+
+  def has_name?
+    name
+  end
 
   def has_an_empty_tap_list?
     tap_list.empty?

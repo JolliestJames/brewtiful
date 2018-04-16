@@ -7,6 +7,14 @@ class Brewery < Business
     @name = name
   end
 
+  def has_location?
+    location
+  end
+
+  def has_name?
+    name
+  end
+
   def out_of_stock?
     brews.empty?
   end

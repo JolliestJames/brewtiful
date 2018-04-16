@@ -17,4 +17,12 @@ RSpec.describe Brewery do
     expect(brewery).not_to be_out_of_stock
   end
 
+  it "knows that a brewery has a location" do
+    expect(brewery).to have_location
+  end
+
+  it "knows that a brewery has a name" do
+    expect(brewery).to have_name
+  end
+
 end 

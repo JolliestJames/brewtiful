@@ -13,4 +13,12 @@ RSpec.describe Pub do
     expect(pub).not_to have_an_empty_tap_list
   end
 
+  it "knows that a pub has a location" do
+    expect(pub).to have_location
+  end
+
+  it "knows that a pub has a name" do
+    expect(pub).to have_name
+  end
+
 end
