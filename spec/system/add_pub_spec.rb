@@ -10,5 +10,6 @@ RSpec.describe "adding a pub", type: :system do
     visit pubs_path
     expect(page).to have_content("Brother John's West Side")
     expect(page).to have_content("Bend, OR")
+    expect(page).to have_content("HWY97\nRed Chair\nRuby\nCast Out")
   end
 end
