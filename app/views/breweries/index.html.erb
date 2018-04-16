@@ -1,0 +1,17 @@
+<h1>All Breweries</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Brewery Name</td>
+      <td>Brewery Location</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @breweries.each do |brewery| %>
+      <tr>
+        <td><%= brewery.name %></td>
+        <td><%= brewery.location %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
