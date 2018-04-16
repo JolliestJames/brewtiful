@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416013430) do
+ActiveRecord::Schema.define(version: 20180416071504) do
 
   create_table "breweries", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "brews", force: :cascade do |t|
+    t.integer "brewery_id"
+    t.string "name"
+    t.float "abv"
+    t.integer "ibus"
+    t.string "classification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "consumed", default: false
+    t.index ["brewery_id"], name: "index_brews_on_brewery_id"
+  end
+
+  create_table "brews_pubs", id: false, force: :cascade do |t|
+    t.integer "brew_id"
+    t.integer "pub_id"
   end
 
   create_table "pubs", force: :cascade do |t|
