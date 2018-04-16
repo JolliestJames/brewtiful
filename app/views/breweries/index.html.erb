@@ -8,9 +8,9 @@
   </thead>
   <tbody>
     <% @breweries.each do |brewery| %>
-      <tr>
-        <td><%= brewery.name %></td>
-        <td><%= brewery.location %></td>
+      <tr class="brewery-row" id="<%= dom_id(brewery) %>">
+        <td class="name"><%= brewery.name %></td>
+        <td class="location"><%= brewery.location %></td>
       </tr>
     <% end %>
   </tbody>
