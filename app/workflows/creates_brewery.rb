@@ -4,6 +4,11 @@ class CreatesBrewery
   def initialize(name: " ", location: " ")
     @name = name
     @location = location
+    @success = false
+  end
+
+  def success?
+    @success
   end
 
   def build
@@ -13,7 +18,8 @@ class CreatesBrewery
 
   def create
     build
-    brewery.save
+    result = brewery.save
+    @success = result
   end
 
 end

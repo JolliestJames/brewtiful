@@ -1,5 +1,6 @@
 class Brewery < Business
   has_many :brews, dependent: :destroy
+  validates :name, presence: true
 
   def has_location?
     location
