@@ -12,6 +12,11 @@ class BreweriesController < ApplicationController
       name: params[:brewery][:name],
       location: params[:brewery][:location])
     @workflow.create
-    redirect_to breweries_path
+    if @workflow.success?
+      redirect_to breweries_path
+    else
+      @brewery = @workflow.brewery
+      render :new
+    end
   end
 end
