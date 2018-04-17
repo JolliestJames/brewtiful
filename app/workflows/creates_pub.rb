@@ -1,9 +1,14 @@
 class CreatesPub
   attr_accessor :name, :location, :pub
 
-  def initialize(name: "", location: "")
+  def initialize(name: " ", location: " ")
     @name = name
     @location = location
+    @success = false
+  end
+
+  def success?
+    @success
   end
 
   def build
@@ -13,6 +18,7 @@ class CreatesPub
 
   def create
     build
-    pub.save
+    result = pub.save
+    @success = result
   end
 end

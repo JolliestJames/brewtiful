@@ -1,6 +1,8 @@
 class Pub < Business
   has_and_belongs_to_many :brews
 
+  validates :name, presence: true
+
   def has_location?
     location
   end
