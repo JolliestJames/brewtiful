@@ -1,5 +1,5 @@
 class CreatesPub
-  attr_accessor :name, :location, :brews
+  attr_accessor :name, :location, :pub
 
   def initialize(name: "", location: "")
     @name = name
