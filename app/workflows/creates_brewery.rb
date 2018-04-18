@@ -1,7 +1,7 @@
 class CreatesBrewery
   attr_accessor :name, :location, :brewery
 
-  def initialize(name: " ", location: " ")
+  def initialize(name: "", location: "")
     @name = name
     @location = location
     @success = false
