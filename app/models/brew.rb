@@ -1,6 +1,7 @@
 class Brew < ApplicationRecord
   belongs_to :brewery
   has_and_belongs_to_many :pubs
+  validates :name, presence: true
 
   MAX_LOCAL_DISTANCE = 50
  
