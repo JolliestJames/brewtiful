@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Brewery do
-  let(:brewery) { Brewery.new(name: "Bend", location: "Deschutes") }
-  let(:brew) { Brew.new(abv: 0.068, ibus: 80, classification: "IPA") }
+  let(:brewery) { Brewery.new(name: "Deschutes Brewery", location: "Bend") }
+  let(:brew) { Brew.new(name: "The Abyss", abv: 0.068, ibus: 80, classification: "IPA") }
 
   it "knows that a brewery is a business" do
     expect(Brewery).to be < Business

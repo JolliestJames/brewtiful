@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Pub do
   let(:pub) { Pub.new(location: "Redmond", name:"The Beer Stop") }
-  let(:brew) { Brew.new(abv: 0.068, ibus: 80, classification: "IPA") }
+  let(:brew) { Brew.new(name: "Hopsmack", abv: 0.068, ibus: 80, classification: "IPA") }
 
   it "knows that a pub is a business" do
     expect(Pub).to be < Business
