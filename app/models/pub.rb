@@ -1,4 +1,4 @@
-class Pub < Business
+class Pub < ApplicationRecord
   has_and_belongs_to_many :brews
 
   validates :name, presence: true

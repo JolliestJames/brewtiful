@@ -4,10 +4,6 @@ RSpec.describe Pub do
   let(:pub) { Pub.new(location: "Redmond", name:"The Beer Stop") }
   let(:brew) { Brew.new(name: "Hopsmack", abv: 0.068, ibus: 80, classification: "IPA") }
 
-  it "knows that a pub is a business" do
-    expect(Pub).to be < Business
-  end
-
   it "knows that a pub must have at least one brew on tap" do
     pub.brews << brew
     expect(pub).not_to have_an_empty_tap_list

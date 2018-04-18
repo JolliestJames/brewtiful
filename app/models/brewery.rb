@@ -1,4 +1,4 @@
-class Brewery < Business
+class Brewery < ApplicationRecord
   has_many :brews, dependent: :destroy
   validates :name, presence: true
 
