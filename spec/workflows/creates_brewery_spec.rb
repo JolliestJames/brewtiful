@@ -17,12 +17,19 @@ RSpec.describe CreatesBrewery do
   end
 
   describe "failure cases" do
-    let(:name) {""}
-    let(:location) {"Bend, OR"}
-    it "fails when trying to save a brewery with no name" do
-      creator.create
-      expect(creator).not_to be_a_success
+
+    describe "fails when trying to save a brewery with no name" do
+      let(:name) {""}
+      let(:location) {"Bend, OR"}
+      specify { creator.create; expect(creator).not_to be_a_success }
     end
+
+    describe "fails when trying to save a brewery with no location" do
+      let(:name) {"Deschutes Brewery"}
+      let(:location) {""}
+      specify { creator.create; expect(creator).not_to be_a_success }
+    end
+    
   end
 
 end
