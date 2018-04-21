@@ -5,8 +5,8 @@ RSpec.describe "adding a brew", type: :system do
   it "allows a user to create a brew" do
     visit new_brew_path
     fill_in "Name", with: "Inversion IPA"
-    fill_in "ABV", with: 0.065
-    fill_in "IBUs", with: 85
+    fill_in "Abv", with: 0.065
+    fill_in "Ibus", with: 85
     fill_in "Classification", with: "IPA"
     click_on("Create Brew")
     visit brews_path
