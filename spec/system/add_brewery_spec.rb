@@ -23,4 +23,12 @@ RSpec.describe "adding a brewery", type: :system do
     expect(page).to have_selector(".new_brewery")
   end
 
+  it "does not allow a user to create a brewery without a location" do
+    visit new_brewery_path
+    fill_in "Name", with: "Deschutes Brewery"
+    fill_in "Location", with: ""
+    click_on("Create Brewery")
+    expect(page).to have_selector(".new_brewery")
+  end
+
 end
