@@ -2,7 +2,10 @@ class Brew < ApplicationRecord
   belongs_to :brewery
   has_and_belongs_to_many :pubs
   validates :name, presence: true
-
+  validates :abv, presence: true
+  validates :ibus, presence: true
+  validates :classification, presence: true
+  
   MAX_LOCAL_DISTANCE = 50
  
   def mark_consumed
