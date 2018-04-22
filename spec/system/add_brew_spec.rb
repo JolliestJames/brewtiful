@@ -21,4 +21,44 @@ RSpec.describe "adding a brew", type: :system do
       "#brew_#{brew.id} .classification", text: "IPA")
   end
 
+  it "does not allow a user to create a brew without a name" do
+    visit new_brew_path
+    fill_in "Name", with: ""
+    fill_in "Abv", with: 0.065
+    fill_in "Ibus", with: 85
+    fill_in "Classification", with: "IPA"
+    click_on("Create Brew")
+    expect(page).to have_selector(".new_brew")
+  end
+
+  it "does not allow a user to create a brew without an abv" do
+    visit new_brew_path
+    fill_in "Name", with: "Inversion IPA"
+    fill_in "Abv", with: nil
+    fill_in "Ibus", with: 85
+    fill_in "Classification", with: "IPA"
+    click_on("Create Brew")
+    expect(page).to have_selector(".new_brew")
+  end
+
+  it "does not allow a user to create a brew without ibus" do
+    visit new_brew_path
+    fill_in "Name", with: "Inversion IPA"
+    fill_in "Abv", with: 0.065
+    fill_in "Ibus", with: nil
+    fill_in "Classification", with: "IPA"
+    click_on("Create Brew")
+    expect(page).to have_selector(".new_brew")
+  end
+
+  it "does not allow a user to create a brew without a classification" do
+    visit new_brew_path
+    fill_in "Name", with: "Inversion IPA"
+    fill_in "Abv", with: 0.065
+    fill_in "Ibus", with: 85
+    fill_in "Classification", with: ""
+    click_on("Create Brew")
+    expect(page).to have_selector(".new_brew")
+  end
+
 end

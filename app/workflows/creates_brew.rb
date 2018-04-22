@@ -24,7 +24,7 @@ class CreatesBrew
 
   def create
     build
-    result = brew.save!
+    result = brew.save
     @success = result
   end
 

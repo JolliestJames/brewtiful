@@ -19,4 +19,40 @@ RSpec.describe CreatesBrew do
     end
   end
 
+  describe "failure cases" do
+
+    describe "fails when trying to save a brew with no name" do
+      let(:name) {""}
+      let(:abv) { 0.07 }
+      let(:ibus) { 70 }
+      let(:classification) { "Stout" }
+      specify { creator.create; expect(creator).not_to be_a_success }
+    end
+
+    describe "fails when trying to save a brew with no abv" do
+      let(:name) {"Obsidian Stout"}
+      let(:abv) { nil }
+      let(:ibus) { 70 }
+      let(:classification) { "Stout" }
+      specify { creator.create; expect(creator).not_to be_a_success }
+    end
+
+    describe "fails when trying to save a brew with no ibus" do
+      let(:name) {"Obsidian Stout"}
+      let(:abv) { 0.07 }
+      let(:ibus) { nil }
+      let(:classification) { "Stout" }
+      specify { creator.create; expect(creator).not_to be_a_success }
+    end
+
+    describe "fails when trying to save a brew with no classification" do
+      let(:name) {"Obsidian Stout"}
+      let(:abv) { 0.07 }
+      let(:ibus) { 70 }
+      let(:classification) { "" }
+      specify { creator.create; expect(creator).not_to be_a_success }
+    end
+    
+  end
+
 end
