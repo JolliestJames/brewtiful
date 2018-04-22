@@ -19,4 +19,5 @@ class BreweriesController < ApplicationController
       render :new
     end
   end
+  
 end

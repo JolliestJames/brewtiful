@@ -14,11 +14,11 @@ RSpec.describe Brewery do
   end
 
   it "knows that a brewery has a location" do
-    expect(brewery).to have_location
+    expect(brewery.location).not_to be_nil
   end
 
   it "knows that a brewery has a name" do
-    expect(brewery).to have_name
+    expect(brewery.name).not_to be_nil
   end
 
 end 
