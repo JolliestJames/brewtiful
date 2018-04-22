@@ -1,0 +1,21 @@
+<h1>All Brews</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Brew Name</td>
+      <td>Brew ABV</td>
+      <td>Brew IBUs</td>
+      <td>Brew Classification</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @brews.each do |brew| %>
+      <tr class="brew-row" id="<%= dom_id(brew) %>">
+        <td class="name"><%= brew.name %></td>
+        <td class="abv"><%= brew.abv %></td>
+        <td class="ibus"><%= brew.ibus %></td>
+        <td class="classification"><%= brew.classification %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
