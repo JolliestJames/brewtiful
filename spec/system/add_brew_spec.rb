@@ -10,15 +10,15 @@ RSpec.describe "adding a brew", type: :system do
     fill_in "Classification", with: "IPA"
     click_on("Create Brew")
     visit brews_path
-    @brew = Brew.find_by(name: "Inversion IPA")
+    brew = Brew.find_by(name: "Inversion IPA")
     expect(page).to have_selector(
-      "#brew_#{@brew.id} .name", text: "Inversion IPA")
+      "#brew_#{brew.id} .name", text: "Inversion IPA")
     expect(page).to have_selector(
-      "#brew_#{@brew.id} .abv", text: 0.065)
+      "#brew_#{brew.id} .abv", text: 0.065)
     expect(page).to have_selector(
-      "#brew_#{@brew.id} .ibus", text: 85)
+      "#brew_#{brew.id} .ibus", text: 85)
     expect(page).to have_selector(
-      "#brew_#{@brew.id} .classification", text: "IPA")
+      "#brew_#{brew.id} .classification", text: "IPA")
   end
 
 end
