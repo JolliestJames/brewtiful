@@ -30,4 +30,26 @@ RSpec.describe Brewery do
     expect(brewery.most_bitter_brew).to eq(brew3)
   end
 
+  it "knows that a brewery knows which of its brews is the strongest" do
+    brewery.brews << brew
+    brewery.brews << brew2
+    brewery.brews << brew3
+    expect(brewery.most_abv_brew).to eq(brew)
+  end
+
+  it "knows that a brewery with no brews does not have a strongest brew" do
+    expect(brewery.most_abv_brew).to eq(nil)
+  end
+
+  it "knows that a brewery knows which of its brews is the weakest" do
+    brewery.brews << brew
+    brewery.brews << brew2
+    brewery.brews << brew3
+    expect(brewery.least_abv_brew).to eq(brew2)
+  end
+
+  it "knows that a brewery with no brews does not have a weakest brew" do
+    expect(brewery.least_abv_brew).to eq(nil)
+  end
+
 end 
