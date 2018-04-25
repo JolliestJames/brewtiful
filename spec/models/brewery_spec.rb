@@ -2,7 +2,9 @@ require "rails_helper"
 
 RSpec.describe Brewery do
   let(:brewery) { Brewery.new(name: "Deschutes Brewery", location: "Bend") }
-  let(:brew) { Brew.new(name: "The Abyss", abv: 0.068, ibus: 80, classification: "Imperial Stout") }
+  let(:brew) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 68, classification: "Imperial Stout") }
+  let(:brew2) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
+  let(:brew3) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
 
   it "considers a brewery with no beers to be out of stock" do
     expect(brewery).to be_out_of_stock
