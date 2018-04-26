@@ -1,5 +1,6 @@
-class Drink_Beer
-  def drink_slow
+class DrinkBeer
+
+  def nurse
     sleep(5)
   end
 

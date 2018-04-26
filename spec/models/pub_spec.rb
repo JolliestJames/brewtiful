@@ -1,5 +1,19 @@
 require "rails_helper"
 
+class FakeDrinkBeer
+
+  def nurse
+  end
+
+end
+
+class FakeReplaceKeg
+
+  def replace
+  end
+
+end
+
 RSpec.describe Pub do
   let(:pub) { Pub.new(location: "Redmond", name:"The Beer Stop") }
   let(:brew) { Brew.new(name: "Hopsmack", abv: 0.068, ibus: 80, classification: "IPA") }
@@ -18,12 +32,19 @@ RSpec.describe Pub do
   end
 
   # it "drinks a beer slowly" do
-  #   expect(pub.patronize(Drink_Beer.new)).to be 42
+  #   expect(pub.patronize(DrinkBeer.new)).to be 42
   # end
 
-  it "drinks a fake beer slowly" do
-    expect(pub.patronize_fake(Drink_Beer.new)).to be 42
+  it "drinks a beer slowly" do
+    expect(pub.patronize(FakeDrinkBeer.new)).to eq(42)
   end
 
+  # it "replaces an empty keg" do
+  #   expect(pub.replace_empty_keg(ReplaceKeg.new)).to eq(true)
+  # end
+
+  it "replaces an empty keg" do
+    expect(pub.replace_empty_keg(FakeReplaceKeg.new)).to eq(true)
+  end
 
 end

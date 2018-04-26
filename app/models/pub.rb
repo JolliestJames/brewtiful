@@ -20,13 +20,13 @@ class Pub < ApplicationRecord
   end
 
   def patronize(drink_beer)
-    drink_beer.drink_slow
+    drink_beer.nurse
     return 42
   end
 
-  def patronize_fake(drink_beer)
-    # drink_beer.drink_slow
-    return 42
+  def replace_empty_keg(replace_keg)
+    replace_keg.replace
+    return true
   end
 
 end
