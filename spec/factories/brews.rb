@@ -27,5 +27,26 @@ FactoryBot.define do
       classification "North West Pale Ale"
     end
 
+    trait :low_abv do
+      name "Mirror Pond Pale Ale"
+      abv 0.05
+      ibus 40
+      classification "Pale Ale"
+    end
+
+    trait :med_abv do
+      name "Red Chair Pale Ale"
+      abv 0.062
+      ibus 60
+      classification "North West Pale Ale"
+    end
+
+    trait :high_abv do
+      name "The Abyss"
+      abv 0.11
+      ibus 30
+      classification "Imperial Stout"
+    end
+
   end
 end

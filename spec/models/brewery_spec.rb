@@ -43,9 +43,12 @@ RSpec.describe Brewery do
     expect(brewery.least_bitter_brew).to be_nil
   end
 
-  let(:high_abv) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
-  let(:low_abv) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
-  let(:med_abv) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
+  let(:low_abv) { FactoryBot.build(:brew, :low_abv) }
+  let(:med_abv) { FactoryBot.build(:brew, :med_abv) }
+  let(:high_abv) { FactoryBot.build(:brew, :high_abv) }
+  #   Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
+  # let(:low_abv) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
+  # let(:med_abv) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
 
   it "knows that a brewery knows which of its brews is the strongest" do
     brewery.brews = [low_abv, med_abv, high_abv]
