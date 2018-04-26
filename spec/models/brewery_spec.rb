@@ -3,9 +3,7 @@ require "rails_helper"
 RSpec.describe Brewery do
   let(:brewery) { Brewery.new(name: "Deschutes Brewery", location: "Bend") }
   let(:brew) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
-  let(:brew2) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
-  let(:brew3) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
-
+  
   it "considers a brewery with no beers to be out of stock" do
     expect(brewery).to be_out_of_stock
   end
@@ -23,11 +21,13 @@ RSpec.describe Brewery do
     expect(brewery.name).not_to be_nil
   end
 
+  let(:low_ibus) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
+  let(:med_ibus) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
+  let(:high_ibus) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
+
   it "knows that a brewery knows which of its brews is most bitter" do
-    brewery.brews << brew
-    brewery.brews << brew2
-    brewery.brews << brew3
-    expect(brewery.most_bitter_brew).to eq(brew3)
+    brewery.brews = [low_ibus, med_ibus, high_ibus]
+    expect(brewery.most_bitter_brew).to eq(high_ibus)
   end
 
   it "knows that a brewery with no brews has no brew which is most bitter" do
@@ -35,21 +35,21 @@ RSpec.describe Brewery do
   end
 
   it "knows that a brewery knows which of its brews is least bitter" do
-    brewery.brews << brew
-    brewery.brews << brew2
-    brewery.brews << brew3
-    expect(brewery.least_bitter_brew).to eq(brew)
+    brewery.brews = [low_ibus, med_ibus, high_ibus]
+    expect(brewery.least_bitter_brew).to eq(low_ibus)
   end
   
   it "knows that a brewery with no brews has no brew which is least bitter" do
     expect(brewery.least_bitter_brew).to be_nil
   end
 
+  let(:high_abv) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
+  let(:low_abv) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
+  let(:med_abv) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
+
   it "knows that a brewery knows which of its brews is the strongest" do
-    brewery.brews << brew
-    brewery.brews << brew2
-    brewery.brews << brew3
-    expect(brewery.strongest_brew).to eq(brew)
+    brewery.brews = [low_abv, med_abv, high_abv]
+    expect(brewery.strongest_brew).to eq(high_abv)
   end
 
   it "knows that a brewery with no brews does not have a strongest brew" do
@@ -57,10 +57,8 @@ RSpec.describe Brewery do
   end
 
   it "knows that a brewery knows which of its brews is the weakest" do
-    brewery.brews << brew
-    brewery.brews << brew2
-    brewery.brews << brew3
-    expect(brewery.weakest_brew).to eq(brew2)
+    brewery.brews = [low_abv, med_abv, high_abv]
+    expect(brewery.weakest_brew).to eq(low_abv)
   end
 
   it "knows that a brewery with no brews does not have a weakest brew" do

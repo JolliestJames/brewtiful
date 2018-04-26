@@ -20,7 +20,7 @@ class Brewery < ApplicationRecord
   end
 
   def weakest_brew
-    least_abv_brew = self.brews.min_by { |brew| brew.abv }
+    self.brews.min_by { |brew| brew.abv }
   end
 
 end
