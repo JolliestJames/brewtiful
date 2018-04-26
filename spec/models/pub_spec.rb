@@ -47,4 +47,11 @@ RSpec.describe Pub do
     expect(pub.replace_empty_keg(FakeReplaceKeg.new)).to eq(true)
   end
 
+  it "mocks an object" do
+    expect(pub).to receive(:name).and_return("Pub stub")
+    expect(pub).to receive(:location).and_return("Location stub")
+    expect(pub.name).to eq("Pub stub")
+    expect(pub.location).to eq("Location stub")
+  end
+
 end
