@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Brewery do
   let(:brewery) { FactoryBot.build_stubbed(:brewery) }
   let(:brew) { FactoryBot.build(:brew) }
-  
+
   it "considers a brewery with no beers to be out of stock" do
     expect(brewery).to be_out_of_stock
   end

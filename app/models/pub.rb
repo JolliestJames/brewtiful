@@ -19,4 +19,14 @@ class Pub < ApplicationRecord
     self.brews
   end
 
+  def patronize(drink_beer)
+    drink_beer.drink_slow
+    return 42
+  end
+
+  def patronize_fake(drink_beer)
+    # drink_beer.drink_slow
+    return 42
+  end
+
 end

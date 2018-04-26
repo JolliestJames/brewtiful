@@ -17,4 +17,13 @@ RSpec.describe Pub do
     expect(pub).to have_name
   end
 
+  # it "drinks a beer slowly" do
+  #   expect(pub.patronize(Drink_Beer.new)).to be 42
+  # end
+
+  it "drinks a fake beer slowly" do
+    expect(pub.patronize_fake(Drink_Beer.new)).to be 42
+  end
+
+
 end
