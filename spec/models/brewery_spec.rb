@@ -27,7 +27,7 @@ RSpec.describe Brewery do
 
   it "knows that a brewery knows which of its brews is most bitter" do
     brewery.brews = [low_ibus, med_ibus, high_ibus]
-    expect(brewery.most_bitter_brew).to be(high_ibus)
+    expect(brewery.most_bitter_brew).to have_same_ibus_as(high_ibus)
   end
 
   it "knows that a brewery with no brews has no brew which is most bitter" do
@@ -36,7 +36,7 @@ RSpec.describe Brewery do
 
   it "knows that a brewery knows which of its brews is least bitter" do
     brewery.brews = [low_ibus, med_ibus, high_ibus]
-    expect(brewery.least_bitter_brew).to be(low_ibus)
+    expect(brewery.least_bitter_brew).to have_same_ibus_as(low_ibus)
   end
   
   it "knows that a brewery with no brews has no brew which is least bitter" do
