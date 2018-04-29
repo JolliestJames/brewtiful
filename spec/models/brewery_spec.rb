@@ -54,8 +54,8 @@ RSpec.describe Brewery do
 
 # ---------------------------test-------------------------
   it "knows that a brewery knows which of its brews is the strongest" do
-    # brews = [low_abv, med_abv, high_abv]
-    expect(high_abv).to be_abv(high_abv)
+    brewery.brews = [low_abv, med_abv, high_abv]
+    expect(brewery.strongest_brew.abv).to be_abv(high_abv.abv)
   end
 # ---------------------------test-------------------------
 
