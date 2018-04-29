@@ -27,7 +27,7 @@ RSpec.describe Brewery do
 
   it "knows that a brewery knows which of its brews is most bitter" do
     brewery.brews = [low_ibus, med_ibus, high_ibus]
-    expect(brewery.most_bitter_brew).to eq(high_ibus)
+    expect(brewery.most_bitter_brew).to be_brew(high_ibus)
   end
 
   it "knows that a brewery with no brews has no brew which is most bitter" do
@@ -36,7 +36,7 @@ RSpec.describe Brewery do
 
   it "knows that a brewery knows which of its brews is least bitter" do
     brewery.brews = [low_ibus, med_ibus, high_ibus]
-    expect(brewery.least_bitter_brew).to eq(low_ibus)
+    expect(brewery.least_bitter_brew).to be_brew(low_ibus)
   end
   
   it "knows that a brewery with no brews has no brew which is least bitter" do
@@ -49,27 +49,20 @@ RSpec.describe Brewery do
 
   it "knows that a brewery knows which of its brews is the strongest" do
     brewery.brews = [low_abv, med_abv, high_abv]
-    expect(brewery.strongest_brew).to eq(high_abv)
+    expect(brewery.strongest_brew).to be_brew(high_abv)
   end
-
-# ---------------------------test-------------------------
-  it "knows that a brewery knows which of its brews is the strongest" do
-    brewery.brews = [low_abv, med_abv, high_abv]
-    expect(brewery.strongest_brew.abv).to be_abv(high_abv.abv)
-  end
-# ---------------------------test-------------------------
 
   it "knows that a brewery with no brews does not have a strongest brew" do
-    expect(brewery.strongest_brew).to eq(nil)
+    expect(brewery.strongest_brew).to be_nil
   end
 
   it "knows that a brewery knows which of its brews is the weakest" do
     brewery.brews = [low_abv, med_abv, high_abv]
-    expect(brewery.weakest_brew).to eq(low_abv)
+    expect(brewery.weakest_brew).to be_brew(low_abv)
   end
 
   it "knows that a brewery with no brews does not have a weakest brew" do
-    expect(brewery.weakest_brew).to eq(nil)
+    expect(brewery.weakest_brew).to be_nil
   end
 
 end 
