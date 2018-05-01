@@ -8,13 +8,12 @@ RSpec.describe Brew do
   end
 
   it "allows us to consume a brew" do
-    brew.mark_consumed
+    brew.consume
     expect(brew).to be_consumed
   end
 
-  it "is a local brew" do
-    brew.is_local(5)
-    expect(brew).to be_local
+  it "knows if a brew is local" do
+    expect(brew.is_local(5)).to be true
   end
   
 end
