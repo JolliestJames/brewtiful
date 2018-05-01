@@ -5,7 +5,7 @@ RSpec.describe Pub do
   let(:brew) { Brew.new(name: "Hopsmack", abv: 0.068, ibus: 80, classification: "IPA") }
 
   it "knows that a pub must have at least one brew on tap" do
-    pub.brews << brew
+    pub.tap_list << brew
     expect(pub).not_to have_an_empty_tap_list
   end
 

@@ -12,7 +12,11 @@ class Pub < ApplicationRecord
   end
 
   def has_an_empty_tap_list?
-    brews.empty?
+    self.tap_list.empty?
+  end
+
+  def tap_list
+    self.brews
   end
 
 end
