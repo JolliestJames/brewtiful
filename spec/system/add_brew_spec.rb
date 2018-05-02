@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "adding a brew", type: :system do
+  let (:brewery) { FactoryBot.create(:brewery) }
 
   it "allows a user to create a brew" do
     visit new_brew_path
@@ -8,6 +9,8 @@ RSpec.describe "adding a brew", type: :system do
     fill_in "Abv", with: 0.065
     fill_in "Ibus", with: 85
     fill_in "Classification", with: "IPA"
+    fill_in "Brewery", with: brewery.id
+    # byebug
     click_on("Create Brew")
     visit brews_path
     brew = Brew.find_by(name: "Inversion IPA")

@@ -1,5 +1,5 @@
 class BrewsController < ApplicationController
-  
+
   def new
     @brew = Brew.new
   end
@@ -13,7 +13,8 @@ class BrewsController < ApplicationController
       name: params[:brew][:name],
       abv: params[:brew][:abv],
       ibus: params[:brew][:ibus],
-      classification: params[:brew][:classification])
+      classification: params[:brew][:classification],
+      brewery_id: params[:brew][:brewery])
     @workflow.create
     if @workflow.success?
       redirect_to brews_path
