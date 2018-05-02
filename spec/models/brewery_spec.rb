@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Brewery do
-  let(:brewery) { Brewery.new(name: "Deschutes Brewery", location: "Bend") }
-  let(:brew) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
+  let(:brewery) { FactoryBot.build_stubbed(:brewery) }
+  let(:brew) { FactoryBot.build(:brew) }
   
   it "considers a brewery with no beers to be out of stock" do
     expect(brewery).to be_out_of_stock
@@ -21,9 +21,9 @@ RSpec.describe Brewery do
     expect(brewery.name).not_to be_nil
   end
 
-  let(:low_ibus) { Brew.new(name: "The Abyss", abv: 0.11, ibus: 30, classification: "Imperial Stout") }
-  let(:med_ibus) { Brew.new(name: "Mirror Pond Pale Ale", abv: 0.05, ibus: 40, classification: "Imperial Stout") }
-  let(:high_ibus) { Brew.new(name: "Red Chair Pale Ale", abv: 0.062, ibus: 60, classification: "North West Pale Ale") }
+  let(:low_ibus) { FactoryBot.build(:brew, :low_ibus) }
+  let(:med_ibus) { FactoryBot.build(:brew, :med_ibus) }
+  let(:high_ibus) { FactoryBot.build(:brew, :high_ibus) }
 
   it "knows that a brewery knows which of its brews is most bitter" do
     brewery.brews = [low_ibus, med_ibus, high_ibus]
