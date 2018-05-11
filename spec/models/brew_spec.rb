@@ -15,5 +15,10 @@ RSpec.describe Brew do
   it "knows if a brew is local" do
     expect(brew.is_local(5)).to be true
   end
+
+  it "can perform an execution on a big brew dependency" do
+    big_brew_dependency = BigBrewDependency.new
+    expect(brew.perform(big_brew_dependency)).to eq(42)
+  end
   
 end
