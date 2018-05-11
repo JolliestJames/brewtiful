@@ -1,5 +1,12 @@
 require "rails_helper"
 
+class FakeBigBrewDependency
+
+  def execute
+  end
+
+end
+
 RSpec.describe Brew do
   let(:brew) { FactoryBot.build_stubbed(:brew) }
 
@@ -16,9 +23,14 @@ RSpec.describe Brew do
     expect(brew.is_local(5)).to be true
   end
 
+  # it "can perform an execution on a big brew dependency" do
+  #   big_brew_dependency = BigBrewDependency.new
+  #   expect(brew.perform(big_brew_dependency)).to eq(42)
+  # end
+
   it "can perform an execution on a big brew dependency" do
-    big_brew_dependency = BigBrewDependency.new
-    expect(brew.perform(big_brew_dependency)).to eq(42)
+    fake_big_brew_dependency = FakeBigBrewDependency.new
+    expect(brew.perform(fake_big_brew_dependency)).to eq(42)
   end
   
 end
