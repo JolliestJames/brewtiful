@@ -15,5 +15,10 @@ class Brew < ApplicationRecord
   def is_local(miles_from_brewery)
     miles_from_brewery < MAX_LOCAL_DISTANCE
   end
+
+  def perform(big_brew_dependency)
+    big_brew_dependency.execute
+    42
+  end
   
 end
