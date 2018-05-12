@@ -63,4 +63,25 @@ RSpec.describe "adding a brew", type: :system do
     expect(page).to have_selector(".new_brew")
   end
 
+  it "behaves correctly in the face of a surprising database failure" do
+    workflow = instance_spy(CreatesBrew,
+      success?: false, brew: Brew.new)
+    allow(CreatesBrew).to receive(:new)
+      .with(
+        name: "Brew Name",
+        abv: 0.99.to_s,
+        ibus: 1000.00.to_s,
+        classification: "Brew Classification",
+        brewery_id: brewery.id.to_s)
+      .and_return(workflow)
+    visit new_brew_path
+    fill_in "Name", with: "Brew Name"
+    fill_in "Abv", with: 0.99.to_s
+    fill_in "Ibus", with: 1000.00.to_s
+    fill_in "Classification", with: "Brew Classification"
+    fill_in "Brewery", with: brewery.id.to_s
+    click_on("Create Brew")
+    expect(page).to have_selector(".new_brew")
+  end
+
 end
