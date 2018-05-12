@@ -55,4 +55,19 @@ RSpec.describe CreatesBrew do
     
   end
 
+  describe "mocking a failure" do
+    it "fails when we say it fails" do
+      brew = instance_spy(Brew, save: false)
+      allow(Brew).to receive(:new).and_return(brew)
+      creator = CreatesBrew.new(
+        name: "Name",
+        abv: 0.99,
+        ibus: 1000.00,
+        classification: "Classification"
+      )
+      creator.create
+      expect(creator).not_to be_a_success
+    end
+  end
+
 end
