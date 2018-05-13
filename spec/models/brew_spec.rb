@@ -47,10 +47,12 @@ RSpec.describe Brew do
       expect(brew).to receive(:abv).and_return(0.12)
       expect(brew).to receive(:ibus).and_return(100.00)
       expect(brew).to receive(:classification).and_return("Classification stub")
+      expect(brew).to receive(:brewery_id).and_return(1)
       expect(brew.name).to eq("Brew stub")
       expect(brew.abv).to eq(0.12)
       expect(brew.ibus).to eq(100)
       expect(brew.classification).to eq("Classification stub")
+      expect(brew.brewery_id).to eq(1)
     end
 
     it "stubs the class" do
@@ -59,7 +61,8 @@ RSpec.describe Brew do
           name: "Stubbed brew",
           abv: 0.99,
           ibus: 1000.00,
-          classification: "Stubbed classification"
+          classification: "Stubbed classification",
+          brewery_id: 1
         )
       )
       brew = Brew.find(1)
@@ -67,6 +70,7 @@ RSpec.describe Brew do
       expect(brew.abv).to eq(0.99)
       expect(brew.ibus).to eq(1000.00)
       expect(brew.classification).to eq("Stubbed classification")
+      expect(brew.brewery_id).to eq(1)
     end
 
   end
