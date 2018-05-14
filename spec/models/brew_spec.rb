@@ -36,7 +36,7 @@ RSpec.describe Brew do
   describe "test doubles" do
 
     it "stubs an object" do
-      expect(brew).to receive(:name).and_return("Brewtiful")
+      allow(brew).to receive(:name).and_return("Brewtiful")
       expect(brew.name).to eq("Brewtiful")
     end
 
